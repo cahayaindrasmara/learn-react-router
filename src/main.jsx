@@ -13,22 +13,26 @@ import DataLayout from "./DataLayout.jsx";
 import ProductDetail from "./ProductDetail.jsx";
 import Image from "./Image.jsx";
 import NotFound from "./NotFound.jsx";
+import ProductSearch from "./ProductSearch.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
-        <Route path="/data" element={<DataLayout />}> {/*kalau element nya diinisialisasi kan menjadi parent component, cocok untuk outlet */}
-          <Route index element={<Data/>}/>
-          <Route path="product" element={<Product/>}/>
-          <Route path="customer" element={<Customer/>}/>
-          <Route path="seller" element={<Seller/>}/>
-          <Route path="product/:id" element={<ProductDetail/>}/>
-          <Route path="images/*" element={<Image/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/data" element={<DataLayout />}>
+          {" "}
+          {/*kalau element nya diinisialisasi kan menjadi parent component, cocok untuk outlet */}
+          <Route index element={<Data />} />
+          <Route path="product" element={<Product />} />
+          <Route path="product/search" element={<ProductSearch />} />
+          <Route path="customer" element={<Customer />} />
+          <Route path="seller" element={<Seller />} />
+          <Route path="product/:id" element={<ProductDetail />} />
+          <Route path="images/*" element={<Image />} />
         </Route>
-        <Route path="/*" element={<NotFound/>}/>
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
